@@ -12,9 +12,17 @@
 @interface Enemy : CCNode {
     NSString *theBaseImage;
     CCSprite *enemySprite;
+    int currentFrame;
+    int framesToAnimate;
+    NSString *theAction;
+    int screenWidth;
+    int screenHeight;
+    float downwardSpeed;
 }
 
 +(id) createEnemy:(NSString*)baseImage;
 -(id) initWithOwnProperties:(NSString*)baseImage;
+-(int) width;
+-(int) height;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "MainGameLayer.h"
 #import "Constants.h"
+#import "stdlib.h"
 
 #define IS_IPHONE (!IS_IPAD)
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPhone)
@@ -49,7 +50,8 @@
         ammoKindInUse = kDefaultAmmo;
         ammoKindToPickUp = kDefaultAmmo;
         
-        
+        numberOfEnemiesOnStage = 0;
+        maxNumberOfEnemies = 5;     // just for now
         
         sae = [SimpleAudioEngine sharedEngine];
         
@@ -81,11 +83,37 @@
         thePlayer.position = ccp(screenWidth / 2, thePlayer.height);
         
         [self schedule:@selector(automaticFire:) interval:60.0f / 60.0f];
+        [self schedule:@selector(addToWaveAttack:) interval:60.0f / 60.0f];
+        //increate or decrese time for faster spawning
         [self schedule:@selector(mainGameLoop:) interval:1.0f / 60.0f];
 	}
 	return self;
 }
 
+
+
+-(void) addToWaveAttack:(ccTime)delta   {
+    
+    if(numberOfEnemiesOnStage < maxNumberOfEnemies)  {
+        [self addEnemy];
+    }
+    
+}
+
+
+
+-(void) addEnemy    {
+    
+//    int randomX = arc4random() % screenWidth;  // creates random location between 0 and the screen width
+    // if you want to trim this you could...
+    int randomX = (arc4random() % (screenWidth-50)+25);
+                   
+    Enemy *anEnemy = [Enemy createEnemy:@"zombie"];
+    [self addChild:anEnemy z:depthLevelEnemy];
+    anEnemy.position = ccp(randomX, screenHeight+[anEnemy height]);
+    
+    numberOfEnemiesOnStage++;
+}
 
 
 

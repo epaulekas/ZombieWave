@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "Player.h"
 #import "Bullet.h"
+#import "Enemy.h"
 #import "SimpleAudioEngine.h"
 
 @interface MainGameLayer : CCLayer {
@@ -43,6 +44,9 @@
     
     int ammoKindInUse;
     int ammoKindToPickUp;
+    
+    int numberOfEnemiesOnStage;
+    int maxNumberOfEnemies;
     
     //NSStrings
     NSString *ammoTypeStringName;
