@@ -80,4 +80,11 @@
     
 }
 
+- (CGRect) getSize  {
+    double sx = self.position.x;
+    double sy = self.position.y;
+    return CGRectMake(sx, sy, bulletSprite.contentSize.width, bulletSprite.contentSize.height);
+}
+
+
 @end

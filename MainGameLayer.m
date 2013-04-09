@@ -118,9 +118,25 @@
 
 
 -(void) mainGameLoop:(ccTime)delta    {
-
+    [self enemyAndBulletCollisionHandler];
 }
 
+
+
+-(void) enemyAndBulletCollisionHandler    {
+    for(Bullet *someBullet in self.children)    {
+        if( [someBullet isKindOfClass:[Bullet class]])  {
+            for(Enemy *someEnemy in self.children)  {
+                if( [someEnemy isKindOfClass:[Enemy class]])    {
+//                    CCLOG(@"width: %f - height: %f - x:%f - y:%f", someEnemy.getSize.size.width, someEnemy.getSize.size.width, someEnemy.getSize.origin.x, someEnemy.getSize.origin.y);
+                    if (CGRectIntersectsRect(someBullet.getSize, someEnemy.getSize)) {
+                        CCLOG(@"bitch got hit");
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 

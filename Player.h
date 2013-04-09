@@ -26,5 +26,7 @@
 -(int)width;
 -(int)height;
 
+- (CGRect) getSize;
+
 
 @end

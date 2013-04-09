@@ -90,4 +90,12 @@
 
 
 
+- (CGRect) getSize  {
+    double sx = self.position.x;
+    double sy = self.position.y;
+    return CGRectMake(sx, sy, enemySprite.contentSize.width, enemySprite.contentSize.height);
+}
+
+
+
 @end

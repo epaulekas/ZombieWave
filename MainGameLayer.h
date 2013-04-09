@@ -50,11 +50,15 @@
     
     //NSStrings
     NSString *ammoTypeStringName;
+    
+    // CGPoints
+    CGPoint whereTheEnemyGotShot;
 
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
 -(void) addToScore:(int) amountToAdd;
+-(void) enemyAndBulletCollisionHandler;
 
 @end

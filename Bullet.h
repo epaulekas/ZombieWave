@@ -27,5 +27,6 @@
 -(id) initWithOurOwnProperties:(NSString*)baseImage;
 -(void) startToMoveBulletDown;
 -(void) startToMoveBulletDownWithBounceRatio:(float)bounceRatio;
+- (CGRect) getSize;
 
 @end

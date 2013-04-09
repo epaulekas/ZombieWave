@@ -24,5 +24,6 @@
 -(id) initWithOwnProperties:(NSString*)baseImage;
 -(int) width;
 -(int) height;
+- (CGRect) getSize;
 
 @end
